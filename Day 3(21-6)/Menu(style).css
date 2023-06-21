@@ -1,0 +1,44 @@
+h1{
+    color: rgb(6, 94, 94);
+    border: 5px solid;
+    border-color: rgb(14, 133, 105);
+    font:oblique;
+  }
+h2{
+    border: 2px solid;
+    border-color: cadetblue;
+  }
+h3{
+    color: rgb(156, 114, 10);
+    font-size: 30px;
+  }
+body{
+    text-align: center; 
+    border:1px;
+    background-color: rgba(198, 108, 52, 0.639);
+  }
+  
+.menu-item {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left:100px;
+  }
+  
+.menu-item img {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    
+  }
+.mar{
+    max-width: 600px;
+    margin-left: 400px;
+    background-color: rgb(223, 157, 157);
+  }
+.photo{
+    border: 4px solid ;
+    border-color: rgb(192, 148, 37);
+  }
+.money{
+    color: rgb(12, 185, 9);
+  }
