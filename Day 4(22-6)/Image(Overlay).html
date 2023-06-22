@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .container-img{
+            position: relative;
+            width: 300px;
+        }
+        .image{
+            display: block;
+            width: 300px;
+            height: 400px;
+            transition: 5s;
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height:100%;
+            opacity: 0;
+            transition: 5s;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .container-img:hover .overlay{
+            opacity: 1;
+        }
+        .container-img:hover .image{
+            transform:rotate(360deg);
+        }
+        .text{
+            color: white;
+            font-size: 20px;
+            position:absolute;
+            top:50%;
+            left: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Image Overlay Effect</h2>
+    <div class="container-img">
+        <img src="supermoon.jpg" class="image">
+        <div class="overlay">
+            <div class="text">Hello</div>
+        </div>
+    </div>
+</body>
+</html>
