@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            background-color: lightblue;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $("#show1").hide();
+                $("#show").click(function(){
+                    $("#box").show(1000);
+                    $("#show1").hide();
+                    $("#hide1").show();
+                    $("#show").prop('disabled', true)
+                    $("#hide").prop("disabled",false);
+                })
+
+                $("#hide").click(function(){
+                    $("#box").hide(1000);
+                    $("#show1").show();
+                    $("#hide1").hide();
+                    $("#hide").prop('disabled', true)
+                    $("#show").prop('disabled', false);
+                })
+
+                $("#show1").click(function(){
+                    $("#box").show(1000);
+                    $("#show1").hide();
+                    $("#hide1").show();
+                    $("#show").prop('disabled', true)
+                    $("#hide").prop("disabled",false);
+                })
+
+                $("#hide1").click(function(){
+                    $("#box").hide(1000);
+                    $("#show1").show();
+                    $("#hide1").hide();
+                    $("#hide").prop('disabled', true)
+                    $("#show").prop('disabled', false);
+                })
+
+                $("#inc").click(function(){
+                    let a = $("#box").width();
+                    console.log(a);
+                    $("#box").css("width",`${Number(a)+100}px`)
+                })
+
+                $("#dec").click(function(){
+                    let a = $("#box").width();
+                    console.log(a);
+                    $("#box").css("width",`${Number(a)-100}px`)
+                })
+
+            })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+        <div id="box">
+
+        </div>
+
+        <div>
+            <button id="show" disabled>Show</button>
+            <button id="hide">Hide</button>
+        </div>
+        <hr/>
+
+        <div>
+            <button id="show1">show</button>
+            <button id="hide1">Hide</button>
+        </div>
+        <hr/>
+
+        <div>
+            <button id="inc">+</button>
+            <button id="dec">-</button>
+
+        </div>
+</body>
+</html>
