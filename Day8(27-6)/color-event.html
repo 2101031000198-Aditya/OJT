@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color event</title>
+</head>
+<body id="mybody">
+    
+</body>
+<script>
+    var color=["red","green","blue","pink","yellow"];
+    var mybody = document.getElementById("mybody");
+    var i=0;
+    setInterval(()=>{
+        mybody.style.backgroundColor=color[i];
+        ++i;
+        if(i==color.length)
+        {
+            i=0;
+        }
+    },1000)
+</script>
+</html>
