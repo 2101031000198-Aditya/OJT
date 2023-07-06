@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>test validator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
+        var $FullNameRegEx = /^([a-zA-Z ]{2,40})$/;
+        var $BankAccountNameRegEx = /^([a-zA-Z ]{2,60})$/;
+        var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
+        var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
+        var $ConNoRegEx = /^([0-9]{10})$/;
+    
+        $(document).ready(function(){
+            $("#TxtFirstName").blur(function(){
+                $("#TxtNameValidation").empty();
+                if($(this).val()==""|| $(this).val()==null){
+                    $("TxtNameValidation").html("(*) Name required...!!")
+                }
+                else{
+                    if(!$(this).val().match($FullNameRegEx)){
+                        $("#TxtNameValidation").html("(*) Invalid contact no..!!");
+                    }
+                }
+            });
+
+            $("#TxtFirstName").keypress(function(e){
+                $("TxtNameValidation").empty();
+                var Flag =((e.which>=65 && e.which<=90) ||  (e.which>=97 && e.which<=121));
+                if(Flag==false){
+                    $("#TxtNameValidation").html("Invalid Input..!!");
+                }
+                return Flag;
+            });
+
+            $("#TxtLastName").blur(function(){
+                $("#TxtNameValidation").empty();
+                if($(this).val()==""|| $(this).val()==null){
+                    $("TxtNameValidation").html("(*) Name required...!!")
+                }
+                else{
+                    if(!$(this).val().match($FullNameRegEx)){
+                        $("#TxtNameValidation").html("(*) Invalid contact no..!!");
+                    }
+                }
+            });
+
+            $("#TxtLastName").keypress(function(e){
+                $("TxtNameValidation").empty();
+                var Flag =((e.which>=65 && e.which<=90) ||  (e.which>=97 && e.which<=121));
+                if(Flag==false){
+                    $("#TxtNameValidation").html("Invalid Input..!!");
+                }
+                return Flag;
+            })
+            
+            $("#TxtEmailId").blur(function(){
+                $("#TxtNameValidation").empty();
+                if($(this).val()==""|| $(this).val()==null){
+                    $("TxtNameValidation").html("(*) Invalid Input...!!")
+                }
+                else{                                                           
+                    if(!$(this).val().match($ConNoRegEx)){
+                        $("#TxtNameValidation").html("(*) Invalid Email no..!!");
+                    }
+                }
+            });
+            $("#TxtContact").blur(function(){
+                $("#TxtNameValidation").empty();
+                if($(this).val()==""|| $(this).val()==null){
+                    $("TxtNameValidation").html("(*) Name required...!!")
+                }
+                else{
+                    if(!$(this).val().match($ConNoRegEx)){
+                        $("#TxtNameValidation").html("(*) Invalid contact no..!!");
+                    }
+                }
+            });
+
+            $("#TxtContact").keypress(function(e){
+                $("TxtNameValidation").empty();
+                var Flag =((e.which>=48 && e.which<=57));
+                if(Flag==false){
+                    $("#TxtNameValidation").html("Invalid Input..!!");
+                }
+                return Flag;
+            })
+
+        });
+
+        var TxtFirstNameFlag=false,
+            TxtLastName=false,
+            TxtEmailId=false,
+            TxtContact=false;
+
+        $("BtnSubmit").click(function(){
+            $("#TxtNameValidation").empty();
+            if($("#TxtFirstName").val()="" || $("#TxtFirstName").val()==null){
+                $("#TxtFirstName").html("(*) Name required...");
+                TxtFirstNameFalse=false;
+            }
+            else{
+                if(!$("#TxtFirstName").val().match($FullNameRegEx)){
+                    $("#TxtNameValidation").html("(*) Invalid name..!!");
+                    TxtFirstNameFlag=false;
+                }
+                else{
+                    TxtFirstNameFlag=true;
+                }
+            }
+
+            $("#TxtNameValidation").empty();
+            if($("#TxtLastName").val()="" || $("#TxtLastName").val()==null){
+                $("#TxtLastName").html("(*) Name required...");
+                TxtFirstName=false;
+            }
+            else{
+                if(!$("#TxtLastName").val().match($FullNameRegEx)){
+                    $("#TxtNameValidation").html("(*) Invalid name..!!");
+                    TxtLastName=false;
+                }
+                else{
+                    TxtLastName=true;
+                }
+            }
+
+            $("#TxtNameValidation").empty();
+            if($("#TxtEmailId").val()="" || $("#TxtEmailId").val()==null){
+                $("#TxtEmailId").html("(*) Email required...");
+                TxtFirstName=false;
+            }
+            else{
+                if(!$("#TxtEmailId").val().match($EmailIdRegEx)){
+                    $("#TxtNameValidation").html("(*) Invalid Email..!!");
+                    TxtEmailId=false;
+                }
+                else{
+                    TxtEmailId=true;
+                }
+            }
+
+            $("#TxtNameValidation").empty();
+            if($("#TxtContact").val()="" || $("#TxtContact").val()==null){
+                $("#TxtContact").html("(*) Number required...");
+                TxtFirstName=false;
+            }
+            else{
+                if(!$("#TxtContact").val().match($FullNameRegEx)){
+                    $("#TxtNameValidation").html("(*) Invalid number..!!");
+                    TxtContact=false;
+                }
+                else{
+                    TxtContact=true;
+                }
+            }
+
+            if(TxtFirstNameFlag==true){
+                $("input,textarea").val("");
+                alert("Form Submited..")
+                }
+        });
+    </script>
+</head>
+<body>
+    <span>First name</span><br>
+    <input type="text" id="TxtFirstName" placeholder="Enter Firstname">
+    <small id="TxtNameValidation"></small><br><br>
+
+    <span>Last name</span><br>
+    <input type="text" id="TxtLastName" placeholder="Enter name">
+    <small id="TxtNameValidation"></small><br><br>
+
+    <span>Email Id</span><br>
+    <input type="text" id="TxtEmailId" placeholder="Enter Email Id">
+    <small id="TxtNameValidation"></small><br><br>
+
+    <span>contact no.</span><br>
+    <input type="text" id="TxtContact" placeholder="Enter number">
+    <small id="TxtNameValidation"></small><br><br>
+
+    <input type="button" id="BtnSubmit" value="Submit">
+
+
+
+</body>
+</html>
